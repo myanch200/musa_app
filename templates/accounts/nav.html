@@ -1,0 +1,46 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<header class="bg-gray-800 border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4" >
+  
+    <!-- Logo text or image -->
+    <div class="flex items-center justify-between mb-4 md:mb-0">
+      <h1 class="leading-none text-2xl text-grey-darkest">
+        <a id="musa-logo" class=" no-underline text-white  " href="#">
+            MUSA
+        </a>
+      </h1>
+  
+      <a class="text-white hover:text-orange md:hidden" href="#">
+        <i class="fa fa-2x fa-bars"></i>
+      </a>
+    </div>
+    <!-- END Logo text or image -->
+    
+  
+    <!-- END Search field -->
+    
+    <!-- Global navigation -->
+    <nav>
+      <ul class="list-reset md:flex md:items-center">
+        <li class="md:ml-4">
+          <a class="block no-underline hover:underline py-2 text-white  md:border-none md:p-1" href="#">
+            Products
+          </a>
+        </li>
+        <li class="md:ml-4">
+          <a class="border-t block no-underline hover:underline py-2 text-white  md:border-none md:p-1" href="#">
+            About
+          </a>
+        </li>
+        <li class="md:ml-4">
+          <a class="border-t block no-underline hover:underline py-2 text-white  md:border-none md:p-1" href="#">
+            Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- END Global navigation -->
+  
+  </header>
