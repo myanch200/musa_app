@@ -9,7 +9,7 @@
             {% for poem in poems %}
                 <div class="poem">
                     <h1 class="poem-title">{{poem.title}}</h1>
-                    <p>{{poem.body|truncatechars:95}}</p>
+                    <p>{{poem.body|truncatechars:95|safe}}</p>
                     <br>
                     <a href="{% url 'accounts:poem_details' poem.id %}">read more</a>
                     <br>

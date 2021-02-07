@@ -2,7 +2,7 @@
 {% load static %}
 <nav class="container">
     <li class="nav-item-left">
-        <a  class="logo-text" href="#">MUSA</a>
+        <a  class="logo-text" href="{% url 'accounts:home' %}">MUSA</a>
     </li>
     {% if user.is_authenticated %}
 
@@ -10,7 +10,7 @@
         <a class="" href="#">Hi, {{ user.username }}</a>
     </li>
     <li class="nav-item-right">     
-        <a class="" href="#">Publish</a>
+        <a class="" href="{% url 'accounts:write_poem' user.id %}">Publish</a>
     </li>
     <li class="nav-item-right">     
         <a class="btn-register" href="{% url 'accounts:logout' %}">Log out</a>

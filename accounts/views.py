@@ -2,12 +2,13 @@ from django.shortcuts import render,get_object_or_404,redirect
 from .models import Poem
 from django.contrib.auth.forms import AuthenticationForm
 
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm ,CreatePoemForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
-    poems =Poem.objects.all().order_by('-date_created')[:6]
+    poems =Poem.objects.all().order_by('-date_created')[:10]
     context = {
         'poems': poems,
     }
@@ -56,3 +57,18 @@ def user_logout(request):
     logout(request)
     messages.success(request, 'Logged out')
     return redirect('accounts:home')
+
+def write_poem(request,pk):
+    user = User.objects.get(id=pk)
+    form = CreatePoemForm()
+    if request.method == 'POST':
+        form = CreatePoemForm(request.POST)
+        if form.is_valid():
+            poem = form.save(commit=False)
+            poem.author = user
+            poem.save()
+            return redirect('accounts:home')
+    context = {'form':form}
+
+    return render(request,'accounts/write_poem.html',context)
+

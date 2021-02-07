@@ -9,7 +9,7 @@
     <div class="details-container">
         <div class="poem-wrapper">
             <h1>{{poem.title}}</h1>
-            <p>{{poem.body}}</p>
+            <p>{{poem.body|safe}}</p>
             <hr>
           <div class="poem-info">
               <em>Author: {{poem.author}}</em>
