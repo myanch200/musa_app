@@ -1,4 +1,30 @@
 {% extends 'accounts/base.html' %}
+{% load static %}
 {% block content %}
-<h1>I am extension</h1>
+<main class="landing">
+    <div class="hero">
+        <span>Recently added...</span>
+
+        <div class="content">
+            {% for poem in poems %}
+                <div class="poem">
+                    <h1 class="poem-title">{{poem.title}}</h1>
+                    <p>{{poem.body|truncatechars:95}}</p>
+                    <br>
+                    <a href="{% url 'accounts:poem_details' poem.id %}">read more</a>
+                    <br>
+                    <i>Author: {{poem.author}}</i>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content">
+        <h1>Box2</h1>
+    </div>
+    <div class="questions">
+        <h1>Box3</h1>
+    </div>
+
+  
+</main>
 {% endblock %}

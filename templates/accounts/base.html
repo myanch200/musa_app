@@ -13,11 +13,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Over+the+Rainbow&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Document</title>
+   {%block extrahead %}
+    {% endblock %}
 </head>
 <body>
     {% include 'accounts/nav.html' %}
+
     {% block content %}
+
     {% endblock %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/base.min.css" integrity="sha512-vVTwAU8p3pmmM/dk6pabcfjIcYse1kO4GvEmoz+AEzQcP4ZGIU7G5TZb7c/FbprWAH5sMKgfS9QcSDnxYIy3YA==" crossorigin="anonymous" />    
 </body>

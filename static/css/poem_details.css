@@ -1,0 +1,23 @@
+.details-container{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+    background-color: white;
+    margin:20px;
+    height:fit-content;
+}
+.details-container h1{
+    margin:20px;
+    font-size: 30px;
+
+}
+.poem-wrapper{
+    height: fit-content;
+    width: 300px;
+}
+.poem-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

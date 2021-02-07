@@ -1,0 +1,21 @@
+{% extends 'accounts/base.html' %}
+{%load static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/poem_details.css' %}">
+<title>{{poem.title}}</title>
+{% endblock %}
+{% block content %}
+    <div class="details-container">
+        <div class="poem-wrapper">
+            <h1>{{poem.title}}</h1>
+            <p>{{poem.body}}</p>
+            <hr>
+          <div class="poem-info">
+              <em>Author: {{poem.author}}</em>
+              <em>Published: {{poem.date_created}}</em>
+          </div>
+        </div>
+   
+    </div>
+{% endblock %}

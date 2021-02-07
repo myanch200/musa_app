@@ -1,18 +1,20 @@
 
 *{
+    font-family:'Montserrat', sans-serif;
+
     margin:0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
     background-color: #E5E7EB;
+
 }
 li{
     list-style: none;
     margin-left: 20px;
 }
 .container{
-    font-family: 'Times New Roman', sans-serif;
 
     background-color: #374151;
     color: #fff;
@@ -43,12 +45,12 @@ li{
     color: #fff;
 }
 .btn-register{
-    border: 0.5px solid #2563EB;
+    border: 0.5px solid #27AE60;
     padding: 10px;
     border-radius:10%;
-    border: 0.5px solid #fff;
-    background-color: #fff;
-    color: #374151;
+    border: 0.5px solid #27AE60;
+    background-color: #374151;
+    color: #fff;
     transition: ease-in 0.5s;
    
     
@@ -64,8 +66,8 @@ li{
 }
 
 .btn-register:hover{
-    border: 0.5px solid #2563EB;
-    background-color: #2563EB;
+    border: 0.5px solid #27AE60;
+    background-color: #27AE60;
     color: #fff;
 
 
@@ -74,3 +76,49 @@ li{
 
 
 
+/*
+    ==================LANDING PAGE==================
+*/
+.landing{
+height: 80vh;
+  background-color: #1a1a1d;
+}
+.hero{
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-direction: column;
+    height:fit-content;
+    background-color: #f6f7fa;
+}
+ span,h1{
+    font-weight: bold;
+    font-size: 22px;
+     margin:20px;
+}
+.hero h1{
+   
+        font-weight: bold;
+        font-size: 22px;
+         margin:20px;
+   
+    
+}
+.content {
+    margin-top: 20px;
+    padding-top:10px;
+    display: grid;                       /* establish flex container */
+    grid-gap:  5px;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));                     /* enable flex items to wrap */
+    justify-content: space-around;
+    
+  }
+  .content > div {
+      margin: 15px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #e3e3e3;
+  border-radius:10px;
+  height:fit-content;
+  }
+  
