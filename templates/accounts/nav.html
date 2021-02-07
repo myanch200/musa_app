@@ -4,10 +4,24 @@
     <li class="nav-item-left">
         <a  class="logo-text" href="#">MUSA</a>
     </li>
+    {% if user.is_authenticated %}
+
     <li class="nav-item-n">     
-        <a class="btn-login" href="#">Login</a>
+        <a class="" href="#">Hi, {{ user.username }}</a>
+    </li>
+    <li class="nav-item-right">     
+        <a class="" href="#">Publish</a>
+    </li>
+    <li class="nav-item-right">     
+        <a class="btn-register" href="{% url 'accounts:logout' %}">Log out</a>
+    </li>
+ 
+    {% else %}
+    <li class="nav-item-right">     
+        <a class="btn-login" href="{% url 'accounts:login' %}">Log in</a>
     </li>
     <li class="nav-item-right">     
         <a class="btn-register" href="{% url 'accounts:register' %}">Register</a>
     </li>
+    {% endif %}
 </nav>
