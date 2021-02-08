@@ -25,6 +25,9 @@
 form{
     text-align: right;
 }
+.comment-container{
+    margin-bottom: 20px;
+}
 #comment{
     border: 1px solid  black;
     margin-bottom: 10px;
@@ -41,16 +44,32 @@ form{
     color: white;
 }
 .comment-item{
+   
+
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
     flex-direction:column;
+    width: 400px;
 
+   
+}
+.comment-item > a{
+    justify-self: flex-start;
+    align-self: flex-start;
+    
+}
+.comment-info{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 .comment-body{
     background-color: #BFDBFE;
     min-height: 75px;
     min-width: 300px;
+    margin-left: 10px;
     
 
 }

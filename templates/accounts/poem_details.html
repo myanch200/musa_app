@@ -21,22 +21,32 @@
             <h1>{{comments.count}} Comment{{ comments|pluralize }}</h1>
 
             <div class="add-comment">
+                {%if user.is_authenticated %}
+
                 <form id="commentForm" method="post">
                     {% csrf_token %}
                     <textarea name="body" id="comment" cols="30" rows="5" placeholder="Comment..."></textarea>
                     <input type="submit" value="comment" class="comment-btn">
                 </form>
+                {% else %}
+                <a href="{% url 'accounts:login' %}">Log in and add comment</a>
+                {% endif %}
             </div>
             {% for comment in comments %}
             
                 <div class="comment-item">
                     <a href="">{{comment.author.username}}</a>
-                    <div class="comment-body">
-                    <p>{{comment.body}}</p>
+
+                    <div class="comment-info">
+                    <img src="{% static 'images/default.jpg' %}" style="width:75px;height:75px" alt="">
+
+                        <div class="comment-body">
+                        <p>{{comment.body}}</p>
+                    </div>
+                    
 
                     </div>
                 </div>
-                <hr>
                 
             
             {% endfor %}
