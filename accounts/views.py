@@ -1,11 +1,13 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import Poem
+from .models import Poem,Comment
 from django.contrib.auth.forms import AuthenticationForm
 
-from .forms import RegisterUserForm ,CreatePoemForm
+from .forms import RegisterUserForm ,CreatePoemForm,CommentPoemForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 # Create your views here.
 def home(request):
     poems =Poem.objects.all().order_by('-date_created')[:10]
@@ -17,7 +19,18 @@ def home(request):
 
 def poem_details(request, pk):
     poem = get_object_or_404(Poem,id=pk)
-    context = {'poem':poem}
+    form = CommentPoemForm()
+    comments = Comment.objects.filter(poem=poem)
+    if request.method == 'POST':
+        form = CommentPoemForm(request.POST or None)
+        
+        if form.is_valid():
+           body = request.POST.get('body')
+           comment = Comment.objects.create(poem=poem,author=request.user,body=body)
+           
+    form = CommentPoemForm()
+
+    context = {'poem':poem,'comments':comments,'form':form}
     return render(request,'accounts/poem_details.html',context)
 
 def register(request):
@@ -71,4 +84,3 @@ def write_poem(request,pk):
     context = {'form':form}
 
     return render(request,'accounts/write_poem.html',context)
-

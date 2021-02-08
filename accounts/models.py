@@ -10,5 +10,14 @@ class Poem(models.Model):
     def __str__(self):
         return self.title
 
+
     
-   
+
+class Comment(models.Model):
+    poem = models.ForeignKey(Poem,  on_delete = models.CASCADE)
+    body = models.TextField()
+    author = models.ForeignKey(User,  on_delete = models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.body}'

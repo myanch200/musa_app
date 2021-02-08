@@ -2,7 +2,7 @@
 {%load static %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/poem_details.css' %}">
+<link rel="stylesheet" href="{% static 'css/poem_details.css' %}"> -->
 <title>{{poem.title}}</title>
 {% endblock %}
 {% block content %}
@@ -14,8 +14,33 @@
           <div class="poem-info">
               <em>Author: {{poem.author}}</em>
               <em>Published: {{poem.date_created}}</em>
+            
           </div>
+            <hr>
+              <div class="comment-container">      
+                      <h1>Comments</h1>
+
+                {% for comment in comments %}
+                
+                    <div class="comment-item">
+                        <a href="">{{comment.author.username}}</a>
+                        <p>{{comment.body}}</p>
+                    </div>
+                    <hr>
+                    
+                
+                {% endfor %}
+            </div>
         </div>
-   
+
+        <div class="add-comment">
+            <form id="commentForm" method="post">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <input type="submit" value="comment" class="" id="commentBtn" >
+            </form>
+        </div>
+       
     </div>
+
 {% endblock %}

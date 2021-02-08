@@ -1,13 +1,13 @@
-.details-container{
-    display: flex;
+ .details-container{
+    /* display: flex;
     justify-content:flex-start;
     align-items:center;
     flex-direction:column;
-    background-color: white;
+    background-color: rgb(185, 10, 10);
     margin:20px;
-    height:fit-content;
+    height:fit-content; */
 }
-.details-container h1{
+ .details-container h1{
     margin:20px;
     font-size: 30px;
 
@@ -20,4 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+} 
+.comment-item a{
+    margin: 20px;
 }
