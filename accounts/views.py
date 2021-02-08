@@ -27,6 +27,7 @@ def poem_details(request, pk):
         if form.is_valid():
            body = request.POST.get('body')
            comment = Comment.objects.create(poem=poem,author=request.user,body=body)
+           return HttpResponseRedirect(request.path_info)
            
     form = CommentPoemForm()
 

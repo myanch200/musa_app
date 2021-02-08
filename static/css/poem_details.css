@@ -1,11 +1,11 @@
  .details-container{
-    /* display: flex;
+    display: flex;
     justify-content:flex-start;
     align-items:center;
     flex-direction:column;
-    background-color: rgb(185, 10, 10);
+    background-color: rgb(255, 255, 255);
     margin:20px;
-    height:fit-content; */
+    height:fit-content;
 }
  .details-container h1{
     margin:20px;
@@ -18,9 +18,39 @@
 }
 .poem-info{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
 } 
-.comment-item a{
-    margin: 20px;
+
+form{
+    text-align: right;
+}
+#comment{
+    border: 1px solid  black;
+    margin-bottom: 10px;
+}
+.comment-btn{
+    padding: 10px;
+    justify-self: center;
+    border: 1px solid black;
+    background-color:white;
+    transition: ease-in 0.5s;
+}
+.comment-btn:hover{
+    background-color: #374151;
+    color: white;
+}
+.comment-item{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction:column;
+
+}
+.comment-body{
+    background-color: #BFDBFE;
+    min-height: 75px;
+    min-width: 300px;
+    
+
 }

@@ -2,45 +2,48 @@
 {%load static %}
 
 {% block extrahead %}
-<link rel="stylesheet" href="{% static 'css/poem_details.css' %}"> -->
+<link rel="stylesheet" href="{% static 'css/poem_details.css' %}">
 <title>{{poem.title}}</title>
 {% endblock %}
 {% block content %}
-    <div class="details-container">
-        <div class="poem-wrapper">
-            <h1>{{poem.title}}</h1>
-            <p>{{poem.body|safe}}</p>
-            <hr>
-          <div class="poem-info">
-              <em>Author: {{poem.author}}</em>
-              <em>Published: {{poem.date_created}}</em>
-            
-          </div>
-            <hr>
-              <div class="comment-container">      
-                      <h1>Comments</h1>
+<div class="details-container">
+    <div class="poem-wrapper">
+        <h1>{{poem.title}}</h1>
+        <p>{{poem.body|safe}}</p>
+        <hr>
+      <div class="poem-info">
+          <em>Author: {{poem.author}}</em>
+          <em>Published: {{poem.date_created}}</em>
+        
+      </div>
+        <hr>
+          <div class="comment-container">      
+            <h1>{{comments.count}} Comment{{ comments|pluralize }}</h1>
 
-                {% for comment in comments %}
-                
-                    <div class="comment-item">
-                        <a href="">{{comment.author.username}}</a>
-                        <p>{{comment.body}}</p>
-                    </div>
-                    <hr>
-                    
-                
-                {% endfor %}
+            <div class="add-comment">
+                <form id="commentForm" method="post">
+                    {% csrf_token %}
+                    <textarea name="body" id="comment" cols="30" rows="5" placeholder="Comment..."></textarea>
+                    <input type="submit" value="comment" class="comment-btn">
+                </form>
             </div>
-        </div>
+            {% for comment in comments %}
+            
+                <div class="comment-item">
+                    <a href="">{{comment.author.username}}</a>
+                    <div class="comment-body">
+                    <p>{{comment.body}}</p>
 
-        <div class="add-comment">
-            <form id="commentForm" method="post">
-                {% csrf_token %}
-                {{ form.as_p}}
-                <input type="submit" value="comment" class="" id="commentBtn" >
-            </form>
+                    </div>
+                </div>
+                <hr>
+                
+            
+            {% endfor %}
         </div>
-       
     </div>
 
+    
+   
+</div>
 {% endblock %}

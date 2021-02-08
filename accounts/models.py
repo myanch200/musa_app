@@ -15,7 +15,7 @@ class Poem(models.Model):
 
 class Comment(models.Model):
     poem = models.ForeignKey(Poem,  on_delete = models.CASCADE)
-    body = models.TextField()
+    body = models.TextField(max_length=255)
     author = models.ForeignKey(User,  on_delete = models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
 

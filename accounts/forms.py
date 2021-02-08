@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.forms import ModelForm
+from django.forms import ModelForm,Textarea
 from .models import Poem,Comment
 class RegisterUserForm(UserCreationForm):
     class Meta:
@@ -18,3 +18,9 @@ class CommentPoemForm(ModelForm):
     class Meta:
         model = Comment
         fields = ['body']
+        widget = {
+                   
+            'name': Textarea(attrs={'cols': 40, 'rows': 40}),
+    
+
+        }
